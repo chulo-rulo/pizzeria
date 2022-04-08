@@ -1,8 +1,7 @@
-package com.bootcamp.entities;
+package com.bootcamp.pizzeria.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,12 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Comentario implements Serializable{
@@ -38,13 +34,33 @@ public class Comentario implements Serializable{
     @NotEmpty(message = "El campo fecha no puede estar vacio")
     private LocalDate fecha;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "comentario")
-    private List<Usuario> usuarios;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@NotNull(message = "El comentario tiene que tener un usuario")
+	private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@NotNull(message = "El comentario tiene que tener una pizza")
 	private Pizza pizza;
+
+    public Comentario() {}
+
+    
+
+    public Comentario(long id,
+            @NotEmpty(message = "El campo texto no puede estar vacio") @Size(min = 4, max = 255, message = "El campo texto tiene que tener entre 4 y 255 caracteres") String texto,
+            @NotEmpty(message = "El campo puntuacion no puede estar vacio") @Size(min = 1, max = 10, message = "El campo texto tiene que tener entre 1 y 10 caracteres") int puntuacion,
+            @NotEmpty(message = "El campo fecha no puede estar vacio") LocalDate fecha,
+            @NotNull(message = "El comentario tiene que tener un usuario") Usuario usuario,
+            @NotNull(message = "El comentario tiene que tener una pizza") Pizza pizza) {
+        this.id = id;
+        this.texto = texto;
+        this.puntuacion = puntuacion;
+        this.fecha = fecha;
+        this.usuario = usuario;
+        this.pizza = pizza;
+    }
+
+
 
     public long getId() {
         return id;
@@ -78,12 +94,12 @@ public class Comentario implements Serializable{
         this.fecha = fecha;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Pizza getPizza() {

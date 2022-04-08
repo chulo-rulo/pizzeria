@@ -1,5 +1,5 @@
-com\bootcamp\entities\Ingrediente.class
-com\bootcamp\entities\Pizza.class
-com\bootcamp\entities\Usuario.class
+com\bootcamp\pizzeria\entities\Comentario.class
+com\bootcamp\pizzeria\entities\Usuario.class
+com\bootcamp\pizzeria\entities\Ingrediente.class
 com\bootcamp\pizzeria\PizzeriaApplication.class
-com\bootcamp\entities\Comentario.class
+com\bootcamp\pizzeria\entities\Pizza.class
