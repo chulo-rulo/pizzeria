@@ -42,7 +42,9 @@ public class Comentario implements Serializable{
 	@NotNull(message = "El comentario tiene que tener una pizza")
 	private Pizza pizza;
 
-    public Comentario() {}
+    public Comentario() {
+        super();
+    }
 
     
 

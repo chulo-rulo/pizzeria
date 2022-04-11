@@ -34,7 +34,9 @@ public class Ingrediente implements Serializable{
 	@NotNull(message = "El ingrediente tiene que tener una pizza")
 	private Pizza pizza;
 
-    public Ingrediente() {}
+    public Ingrediente() {
+        super();
+    }
 
     
 

@@ -45,7 +45,9 @@ public class Usuario implements Serializable{
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "usuario")
     private List<Comentario> comentarios;
 
-    public Usuario() {}
+    public Usuario() {
+        super();
+    }
 
     
 

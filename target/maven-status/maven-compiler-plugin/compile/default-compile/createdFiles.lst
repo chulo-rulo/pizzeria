@@ -1,9 +1,12 @@
 com\bootcamp\pizzeria\dao\IIngredienteDao.class
-com\bootcamp\pizzeria\entities\Usuario.class
-com\bootcamp\pizzeria\dao\IComentarioDao.class
-com\bootcamp\pizzeria\entities\Pizza.class
 com\bootcamp\pizzeria\entities\Comentario.class
 com\bootcamp\pizzeria\entities\Ingrediente.class
 com\bootcamp\pizzeria\dao\IUsuarioDao.class
 com\bootcamp\pizzeria\dao\IPizzaDao.class
 com\bootcamp\pizzeria\PizzeriaApplication.class
+com\bootcamp\pizzeria\entities\Usuario.class
+com\bootcamp\pizzeria\dao\IComentarioDao.class
+com\bootcamp\pizzeria\service\IPizzaServiceImpl.class
+com\bootcamp\pizzeria\entities\Pizza.class
+com\bootcamp\pizzeria\service\IPizzaService.class
+com\bootcamp\pizzeria\controllers\PizzaController.class
